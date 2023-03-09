@@ -22,7 +22,7 @@ RSpec.describe CalculateTax do
 
     context 'for a imported not exempt line item' do
       it 'uses 15% tax' do
-        line_item = LineItem.new(1,  47.50, 'bottle of perfume', true)
+        line_item = LineItem.new(1, 47.50, 'bottle of perfume', true)
         expect(described_class.new(line_item).perform).to eq(54.65)
       end
     end
