@@ -17,16 +17,16 @@ class CalculateTax
   end
 
   def total_tax
-    ((line_item.price * (tax_rate / 100.0)) / 500).round(4) * 500
+    (((line_item.price * (tax_rate / 100.0)) * 20).ceil / 20.0)
   end
 
   def tax_rate
     if line_item.imported && exempt?
       5
     elsif !line_item.imported
-      10.0
+      10
     else
-      15.0
+      15
     end
   end
 end
